@@ -9,6 +9,8 @@ export async function up(knex: Knex) {
     .createTable(ETableNames.city, table => {
       table.bigIncrements('id').primary().index();
       table.string('name', 150).checkLength('<=', 150).index().notNullable();
+      table.dateTime('createdAt').notNullable();
+      table.dateTime('updatedAt').notNullable();
 
       table.comment('Tabela usada para armazenar cidades do sistema.');
     })

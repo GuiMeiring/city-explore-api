@@ -1,4 +1,7 @@
 
 export interface ICity {
-    name: string
+    id: number,
+    name: string,
+    createdAt: Date,
+    updatedAt: Date
 }

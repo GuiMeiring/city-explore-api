@@ -9,7 +9,7 @@ export const development: Knex.Config = {
     port: config.port_db || 3306,
     user: config.user_db || 'root',
     password: config.pass_db || 'root',
-    database: config.database || 'api_node-type',
+    database: config.database || 'api-node-type',
   },
   migrations: {
     directory: resolve(__dirname, '..', 'migrations'),
