@@ -2,7 +2,7 @@ import { ETableNames } from '../../ETableNames';
 import { Knex } from '../../knex';
 import { ICity } from "../../models/City"
 
-export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>): Promise<number | string | unknown> => {
+export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>): Promise<number | string > => {
 
   try {
 
@@ -22,7 +22,8 @@ export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>):
     return 'Erro ao criar Cidade';
         
   } catch (error) {
-    return error;
+    console.log(error);
+    return 'Erro Interno';
   }
 
 };
