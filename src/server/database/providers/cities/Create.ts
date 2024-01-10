@@ -1,17 +1,15 @@
+import { ApiError, BadRequestError, InternalServerError } from '../../../shared/helpers';
 import { ETableNames } from '../../ETableNames';
 import { Knex } from '../../knex';
-import { ICity } from "../../models/City"
+import { ICity } from '../../models';
 
-export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>): Promise<number | string > => {
-
+export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>): Promise<number | ApiError > => {
   try {
-
     const verification = await Knex(ETableNames.city)
       .select('*') 
       .where('name', '=', city.name)
       .first();
-    if (verification) return  'Cidade já exite';
-
+    if (verification) return new BadRequestError('0003','City already exists', {}, { 'city_id': verification.id });
 
     const date = new Date();
 
@@ -19,11 +17,10 @@ export const create = async(city: Omit<ICity, 'id'| 'createdAt' | 'updatedAt'>):
 
     if(typeof result === 'number') return result;
 
-    return 'Erro ao criar Cidade';
+    return new InternalServerError('Error when create City');
         
   } catch (error) {
     console.log(error);
-    return 'Erro Interno';
+    return new InternalServerError('Error when create City', error);
   }
-
 };

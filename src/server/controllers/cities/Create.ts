@@ -4,29 +4,24 @@ import { validation } from "../../shared/middleware";
 import * as yup from 'yup';
 import { CitiesProvider } from "../../database/providers";
 import { ICity } from "../../database/models/City";
+import { ApiError } from "../../shared/helpers";
 
 interface IBodyProps extends Omit<ICity, 'id' | 'updatedAt'| 'createdAt'> {}
 
 export const createValidation = validation((getSchema) => ({
-    body: getSchema<IBodyProps>(
-      yup.object().shape({
-        name: yup.string().required().min(1).max(30)
-      })
-    )
-  }));
+  body: getSchema<IBodyProps>(
+    yup.object().shape({
+      name: yup.string().required().min(1).max(30)
+    })
+  )
+}));
 
-export const create = async(req:Request<{},{},IBodyProps>, res:Response) =>{
-
-  try {
-    const result = await CitiesProvider.create(req.body);
-    if (typeof result === 'string'){
-      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({'error' : result});
-    }
-
-    return res.status(StatusCodes.CREATED).json({'status':'ok', 'id': result});
-
-  }catch(error){
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json('error: Não foi possivel criar a cidade')
-
+export const create = async (req: Request<Record<string, unknown>, Record<string, unknown>, IBodyProps>, res: Response) => {
+  const result = await CitiesProvider.create(req.body);
+  console.log(result);
+  if (result instanceof ApiError) {
+    throw result;
   }
+
+  res.status(StatusCodes.OK).json({ status: 'ok', id: result });
 };
