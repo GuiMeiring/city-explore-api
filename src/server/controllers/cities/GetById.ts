@@ -19,7 +19,7 @@ export const getByIdValidation = validation((getSchema) => ({
   
 export const getById =async (req: Request<IParamsProps>, res: Response) => {
 
-  if(!req.params.id) return new BadRequestError('0002','id is required');
+  if(!req.params.id) throw new BadRequestError('0002','id is required');
 
   const result= await CitiesProvider.getById(req.params.id);
   if(result instanceof ApiError) throw result;
