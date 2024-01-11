@@ -63,7 +63,7 @@ export class ApiError extends Error {
     
   addError('0001', 'This object doesn\'t exist in the database');
   addError('0002', 'JSON with invalid fields / without required fields / with invalid values');
-  addError('0004', 'Already exists');
+  addError('0003', 'Already exists');
   addError('9999', 'Internal Server Error');
     
   export { getApiErrorCode };

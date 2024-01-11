@@ -13,7 +13,7 @@ export const getById =async (id: number): Promise<ICity | ApiError> => {
 
     if(result) return result;
 
-    return new NotFoundError('0001', 'This City doenst exist');
+    return new NotFoundError('0001', 'This City doenst exists');
         
     } catch (error) {
       console.log(error);
