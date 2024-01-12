@@ -24,4 +24,4 @@ export const seed = async (knex: Knex) => {
 const status = [
     { id: 1, status: 'ATIVO' },
     { id: 2, status: 'INATIVO' },
-  ];
+];
