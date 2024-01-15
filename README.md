@@ -100,4 +100,5 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:{PORTA_E
 
 * Tratamento de erros
 * Validações
+* Integração com APIs
 
