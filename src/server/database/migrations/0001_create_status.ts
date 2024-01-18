@@ -7,8 +7,8 @@ export async function up(knex: Knex) {
   return knex
     .schema
     .createTable(ETableNames.status, table => {
-      table.bigInteger('id').primary().index();
-      table.string('status', 50).checkLength('<=', 50).index().notNullable();
+      table.bigInteger('id_status').primary().index();
+      table.string('status', 10).checkLength('<=', 10).index().notNullable();
       table.dateTime('createdAt').notNullable();
       table.dateTime('updatedAt').notNullable();
 

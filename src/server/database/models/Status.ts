@@ -1,6 +1,6 @@
 export interface IStatus {
-    id: number,
+    id_status: number,
     status: string,
     createdAt: Date,
     updatedAt: Date
-}
+};

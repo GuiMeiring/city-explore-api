@@ -7,8 +7,12 @@ export async function up(knex: Knex) {
   return knex
     .schema
     .createTable(ETableNames.city, table => {
-      table.bigIncrements('id').primary().index();
-      table.string('name', 150).checkLength('<=', 150).index().notNullable();
+      table.bigIncrements('id_city').primary().index();
+      table.string('name', 150).checkLength('<=', 150).index().notNullable().unique();
+      table.string('estate', 50).checkLength('<=', 50).index();
+      table.string('country', 50).checkLength('<=', 50).index().notNullable();
+      table.double('lat').index().notNullable();
+      table.double('lng').index().notNullable();
       table.dateTime('createdAt').notNullable();
       table.dateTime('updatedAt').notNullable();
 
