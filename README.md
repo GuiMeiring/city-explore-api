@@ -85,7 +85,7 @@ Para iniciar a aplicação execute o seguinte comando:
    npm run production
  ```
 
-### Endpoints
+## Endpoints
 
 A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:{PORTA_ENV}` deve ser substituído pela porta que você configurou em sua variável de ambiente `PORT`:
 
@@ -96,9 +96,13 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:{PORTA_E
 * `PUT /cities/:id`
 * `DELETE /cities/:id`
 
-### Roadmap
+## Roadmap
 
 * Tratamento de erros
 * Validações
 * Integração com APIs
+
+## Modelagem de Dados
+
+![Modelagem de dados](https://github.com/GuiMeiring/city-explore-api/blob/master/documentation/screenshots/modelagem_de_dados.png)
 
