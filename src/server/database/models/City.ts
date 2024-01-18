@@ -1,7 +1,10 @@
-
 export interface ICity {
-    id: number,
+    id_city: string,
     name: string,
+    estate?: string,
+    country: string,
+    lat: number,
+    lng: number
     createdAt: Date,
     updatedAt: Date
-}
+};

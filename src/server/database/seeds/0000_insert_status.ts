@@ -10,7 +10,7 @@ export const seed = async (knex: Knex) => {
 
   const statusToInsert = status
     .map(newStatus => ({ 
-      id: newStatus.id,
+      id_status: newStatus.id,
       status: newStatus.status,
       createdAt: date,
       updatedAt: date
