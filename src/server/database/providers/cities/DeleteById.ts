@@ -2,19 +2,19 @@ import { ApiError, InternalServerError, NotFoundError } from "../../../shared/he
 import { ETableNames } from "../../ETableNames";
 import { Knex } from "../../knex";
 
-export const deleteById =async (id:number): Promise<void | ApiError> => {
+export const deleteById =async (id_city:number): Promise<void | ApiError> => {
 
   try {
 
     const verification = await Knex(ETableNames.city)
     .select('*')
-    .where('id', '=', id)
+    .where('id_city', '=', id_city)
     .first();
     if(!verification) return new NotFoundError('0001', 'This City doenst exists');
 
     const result = await Knex(ETableNames.city)
     .del()
-    .where('id','=', id);
+    .where('id_city','=', id_city);
 
     if(result) return;
 

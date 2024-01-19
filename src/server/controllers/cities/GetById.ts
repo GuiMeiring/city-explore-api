@@ -6,22 +6,22 @@ import { validation } from '../../shared/middleware';
 import * as yup from 'yup';
 
 export interface IParamsProps {
-  id?: number
+  id_city?: number
 }
 
 export const getByIdValidation = validation((getSchema) => ({
   params: getSchema<IParamsProps>(
     yup.object().shape({
-      id: yup.number().required().moreThan(0)
+      id_city: yup.number().required().moreThan(0)
     })
   )
 }));
   
 export const getById =async (req: Request<IParamsProps>, res: Response) => {
 
-  if(!req.params.id) throw new BadRequestError('0002','id is required');
+  if(!req.params.id_city) throw new BadRequestError('0002','id is required');
 
-  const result= await CitiesProvider.getById(req.params.id);
+  const result= await CitiesProvider.getById(req.params.id_city);
   if(result instanceof ApiError) throw result;
   
   res.status(StatusCodes.OK).json(result);
