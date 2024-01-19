@@ -6,12 +6,16 @@ import { CitiesProvider } from "../../database/providers";
 import { ICity } from "../../database/models/City";
 import { ApiError } from "../../shared/helpers";
 
-interface IBodyProps extends Omit<ICity, 'id' | 'updatedAt'| 'createdAt'> {}
+interface IBodyProps extends Omit<ICity, 'id_city' | 'updatedAt'| 'createdAt'> {}
 
 export const createValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(
     yup.object().shape({
-      name: yup.string().required().min(1).max(30)
+      name: yup.string().required().min(1).max(150),
+      estate: yup.string().min(1).max(50),
+      country: yup.string().required().min(1).max(50),
+      lat: yup.number().required(),
+      lng: yup.number().required()
     })
   )
 }));
