@@ -38,7 +38,9 @@ Antes de executar a API, você precisa configurar algumas variáveis de ambiente
    DB_PORT=3306         # Porta do DataBase Mysql
    DB_USER=             # Usuário Mysql
    DB_PASS=             # Senha do usuário Mysql
-   DB_SCHEMA=           # Nome do banco de dad            
+   DB_SCHEMA=           # Nome do banco de dado
+   API_KEY_OPENCAGE=    #Chave da API externa OpenCAge
+   API_KEY_OPENTRIPMAP= # Chave da API externa OpenTripMap                  
    ```
 
 
