@@ -32,15 +32,16 @@ Antes de executar a API, você precisa configurar algumas variáveis de ambiente
 
 
  ```bash
-   PORT=                # Porta da aplicação
-   NODE_ENV=            # Definir o ambiente de trabalho / production / development 
-   DB_HOST=127.0.0.1    # Endereço ou localização do servidor de Banco de Dados Mysql
-   DB_PORT=3306         # Porta do DataBase Mysql
-   DB_USER=             # Usuário Mysql
-   DB_PASS=             # Senha do usuário Mysql
-   DB_SCHEMA=           # Nome do banco de dado
-   API_KEY_OPENCAGE=    #Chave da API externa OpenCAge
-   API_KEY_OPENTRIPMAP= # Chave da API externa OpenTripMap                  
+   PORT=                    # Porta da aplicação
+   NODE_ENV=                # Definir o ambiente de trabalho / production / development 
+   DB_HOST=127.0.0.1        # Endereço ou localização do servidor de Banco de Dados Mysql
+   DB_PORT=3306             # Porta do DataBase Mysql
+   DB_USER=                 # Usuário Mysql
+   DB_PASS=                 # Senha do usuário Mysql
+   DB_SCHEMA=               # Nome do banco de dado
+   API_KEY_OPENCAGE=        #Chave da API externa OpenCAge
+   API_KEY_OPENTRIPMAP=     # Chave da API externa OpenTripMap     
+   API_KEY_OPENWEATHERMAP=  # Chave da API externa OpenWeatherMap               
    ```
 
 
@@ -93,7 +94,8 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:{PORTA_E
 
 `/cities`
 * `GET /cities`
-* `GET /cities/:id`
+* `GET /city`
+* `GET /search_city`
 * `POST /cities`
 * `PUT /cities/:id`
 * `DELETE /cities/:id`
