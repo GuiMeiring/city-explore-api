@@ -93,12 +93,12 @@ Para iniciar a aplicação execute o seguinte comando:
 A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:{PORTA_ENV}` deve ser substituído pela porta que você configurou em sua variável de ambiente `PORT`:
 
 `/cities`
-* `GET /cities`
+* `GET /`
 * `GET /city`
-* `GET /search_city`
-* `POST /cities`
-* `PUT /cities/:id`
-* `DELETE /cities/:id`
+* `GET /search`
+* `POST /`
+* `PUT /:id`
+* `DELETE /:id`
 
 ## Roadmap
 
